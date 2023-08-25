@@ -67,8 +67,9 @@ public class AgentPersonneMorale extends Personne{
 
     @OneToMany(mappedBy = "societe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<PersonnePhysique> personnePhysiqueActionneur;
-
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "historique_id")
+    private HistoriqueSociete historiqueSociete;
 
 }
 
