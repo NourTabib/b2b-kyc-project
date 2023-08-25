@@ -41,4 +41,5 @@ public class AgentPersonneMorale {
     private SocietesAffilees societesAffilees;
     private List<PersonnePhysique> actionneurs;
     private List<PersonnePhysique> benificiaires;
+    private HistoriqueSociete historiqueSociete;
 }
