@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Table
 public class SocietesAffilees {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String SecteurActivite;

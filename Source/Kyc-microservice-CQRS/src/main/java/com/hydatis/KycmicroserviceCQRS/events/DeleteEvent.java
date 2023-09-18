@@ -1,7 +1,5 @@
 package com.hydatis.KycmicroserviceCQRS.events;
 
-import com.hydatis.KycmicroserviceCQRS.command.model.AgentPersonnePhysique;
-
 import java.time.LocalDateTime;
 
 public class DeleteEvent<T> implements Event<T> {

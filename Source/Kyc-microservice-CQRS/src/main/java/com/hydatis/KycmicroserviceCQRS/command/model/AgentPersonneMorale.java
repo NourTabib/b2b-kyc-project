@@ -18,6 +18,8 @@ import java.util.List;
 public class AgentPersonneMorale extends Personne{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id", updatable = false, nullable = false)
+
     private Long numIdUnique;
     @Column(nullable = false)
     private String raisonSociale;

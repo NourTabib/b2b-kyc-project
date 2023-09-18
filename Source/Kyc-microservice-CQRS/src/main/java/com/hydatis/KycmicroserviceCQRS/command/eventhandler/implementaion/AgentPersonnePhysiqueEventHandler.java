@@ -4,17 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.hydatis.KycmicroserviceCQRS.command.eventhandler.EventHandler;
 import com.hydatis.KycmicroserviceCQRS.command.model.AgentPersonnePhysique;
-import com.hydatis.KycmicroserviceCQRS.command.model.PersonnePhysique;
 import com.hydatis.KycmicroserviceCQRS.events.Event;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
-import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.util.concurrent.ListenableFutureCallback;
 
 
 @EnableKafka

@@ -1,4 +1,6 @@
 package com.hydatis.KycmicroserviceCQRS.command.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.hydatis.KycmicroserviceCQRS.command.model.enums.EtatDeCompte;
 import com.hydatis.KycmicroserviceCQRS.command.model.enums.SourceAlimentation;
 import lombok.*;
@@ -15,7 +17,7 @@ import javax.persistence.*;
 @Table(name = "comptes")
 public class Compte {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCompte;
     private String raison;
 
@@ -25,12 +27,15 @@ public class Compte {
     private String autreSourceAlimentationValue;
     @Enumerated(EnumType.STRING)
     private EtatDeCompte typeDeCompte;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonManagedReference
     private Operation operationDebit;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonManagedReference
     private Operation operationCredit;
     @OneToOne(mappedBy = "compte")
+    @JsonBackReference
     private AgentPersonnePhysique titulaire;
 
 }

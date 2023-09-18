@@ -19,6 +19,7 @@ public class AgentPpQueryController {
         this.agentPpQueryService = agentPpQueryService;
     }
 
+
     public AgentPersonnePhysique findOneById(Long id){
         return this.agentPpQueryService.findOneById(id);
     }

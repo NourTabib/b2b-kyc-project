@@ -1,11 +1,11 @@
 package com.hydatis.KycmicroserviceCQRS.command.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.hydatis.KycmicroserviceCQRS.command.model.enums.TypeDecision;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,16 +17,17 @@ import java.util.List;
 @Table
 public class Decision {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    private Integer fraudScore;
     private LocalDateTime dateDecision;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
+    @JsonManagedReference
     private DemandeEngagement demande;
 
     @Enumerated(EnumType.STRING)
     private TypeDecision decision;
-    @ManyToOne
+    @ManyToOne( fetch = FetchType.EAGER)
     private Responsable prisePar;
 }

@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table
 public class InformationsFinanciere {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private Double capitalSociete;
     private Double chiffreAffaireTotal;

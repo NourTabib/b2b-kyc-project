@@ -8,4 +8,5 @@ public interface CommandService<T> {
     T save(T entity);
     T update(T entity);
     T delete(Long id);
+
 }

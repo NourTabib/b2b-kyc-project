@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Table(name = "historique_societes")
 public class HistoriqueSociete {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalDateTime creationDate;
     @Enumerated(EnumType.STRING)

@@ -3,6 +3,8 @@ package com.hydatis.KycmicroserviceCQRS.query.document;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 
+import org.springframework.data.annotation.Id;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,6 +16,8 @@ import java.util.List;
 @ToString
 @org.springframework.data.mongodb.core.mapping.Document
 public class AgentPersonnePhysique {
+    @Id
+    private String _id;
     @Indexed(unique = true)
     private Long id;
     private String nationalite;
@@ -32,6 +36,6 @@ public class AgentPersonnePhysique {
     private Document document;
     private CategorieSocioProfesionnelle categorieSocioProfesionnelle;
     private Boolean estBeneficiareEffectifs;
-    private AgentPersonnePhysique beneficiaireEffectifs;
+    private AgentPersonnePhysique beneficiaireEffectif;
     private List<Banque> banqueEnRelation;
 }

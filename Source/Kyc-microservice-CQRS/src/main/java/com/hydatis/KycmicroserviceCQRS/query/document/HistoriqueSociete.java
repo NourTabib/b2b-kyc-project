@@ -1,6 +1,8 @@
 package com.hydatis.KycmicroserviceCQRS.query.document;
 
 import lombok.*;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,11 +13,10 @@ import java.time.LocalDateTime;
 @Builder
 @Getter
 @Setter
-@Entity(name = "historique_societe")
-@Table(name = "historique_societes")
+@Document
+@ToString
 public class HistoriqueSociete {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Indexed
     private Long id;
     private LocalDateTime creationDate;
     @Enumerated(EnumType.STRING)

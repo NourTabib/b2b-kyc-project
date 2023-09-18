@@ -1,10 +1,10 @@
 package com.hydatis.KycmicroserviceCQRS.command.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.hydatis.KycmicroserviceCQRS.command.model.enums.TypeAgent;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -16,7 +16,7 @@ import java.util.List;
 @Table
 public class CategorieSocioProfesionnelle {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private TypeAgent typeAgent;
     private String raisonSociale;
@@ -26,5 +26,6 @@ public class CategorieSocioProfesionnelle {
     private String typeActivite;
     private String zoneGeo;
     @OneToOne(mappedBy = "categorieSocioProfesionnelle")
+    @JsonBackReference
     private AgentPersonnePhysique agentPersonnePhysique;
 }

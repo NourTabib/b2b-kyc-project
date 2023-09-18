@@ -1,5 +1,6 @@
 package com.hydatis.KycmicroserviceCQRS.command.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,10 +22,18 @@ public class DemandeEngagement {
 
     private LocalDateTime dateDemande;
 
-    private Integer fraudScore;
+    private String signatureAgent;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+
+    @OneToOne
+    @JoinColumn(name = "agentPP_id")
+    @JsonManagedReference
+    private AgentPersonnePhysique agentPersonnePhysique;
+
+
+    /*@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "responsable_id")
-    private Responsable responsable;
+    private Responsable responsable;*/
 
 }

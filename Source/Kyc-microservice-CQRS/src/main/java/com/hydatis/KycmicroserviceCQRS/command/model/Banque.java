@@ -1,5 +1,6 @@
 package com.hydatis.KycmicroserviceCQRS.command.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
@@ -18,8 +19,9 @@ import java.util.List;
 @Table(name = "banques")
 public class Banque {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nomBanque;
     private String adresse;
     private String swift;
     private String rib;
